@@ -4,11 +4,11 @@ console.log('>> Ready :)');
 
 const title = document.querySelector('.input__name');
 const button = document.querySelector('.btn');
-const result = document.querySelector('.list__series');
-const url = 'http://api.tvmaze.com/search/shows?q=${}';
+const result = document.querySelector('.list');
+const url = 'http://api.tvmaze.com/search/shows?q=';
 
 
-function getList__series() {
+function getList() {
   // Coseguir lo que ha escrito el usuario
   const nameSerie = title.value;
 
@@ -21,27 +21,24 @@ function getList__series() {
     .then(data => {
       result.innerHTML = '';
       let seriesResult = '';
-      for (const item of data.list__series) {
+      for (let item of data) {
         let namesTitle = '';
-        for (const serie of item.serie) {
-          namesTitle += `
-            <li><a href="${serie}">${serie}</a></li>
-          `;
-        }
+        namesTitle += `
+            <li><a href="${item}">${item}</a></li>`;
 
         seriesResult += `
           <li>
             <h2>Name: ${item.name}</h2>
-            <div>Hair color: ${item.hair_color}</div>
             <ul>
               ${namesTitle}
             </ul>
           </li>
         `;
+        console.log('prueba');
       }
       result.innerHTML += seriesResult;
     });
 }
-console.log ('prueba');
-button.addEventListener('click', getList__series);
+
+button.addEventListener('click', getList);
 
