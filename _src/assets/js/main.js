@@ -75,7 +75,7 @@ function getFavs(event) {
     }
   }
   console.log('prueba-favorito-2');
- favorites.innerHTML += seriesResultFav;
+  favorites.innerHTML += seriesResultFav;
 }
 
 button.addEventListener('click', getList);
