@@ -4,7 +4,7 @@ EVALUACIÓN FINAL MÓDULO 2
 
 
 
-![Adalab](_src/assets/images/logo-adalab-80px.png)
+
 # Adalab web starter kit
 Ahoy! Esta es nuestro Starter Kit en node/gulp para este primer contacto con el desarrollo web
 Incluye SCSS, un sistema de plantillas HTMl y un web server.
