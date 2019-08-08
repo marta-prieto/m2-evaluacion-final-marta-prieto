@@ -17,14 +17,22 @@ function getList() {
     .then(data => {
       let seriesResult = '';
       for (const item of data) {
-
-        seriesResult += `
+        if (item.show.image === null) {
+          seriesResult += `
+          <li>
+            <h2 class="title__line"> ${item.show.name}</h2>
+            <img class="img__serie" src="https://via.placeholder.com/210x295/f2f2ff/?text=TV" alt="imagen de:${item.show.name}">
+          </li>
+        `;
+        } else {
+          seriesResult += `
           <li>
             <h2 class="title__line"> ${item.show.name}</h2>
             <img class="img__serie" src="${item.show.image.medium}" alt="imagen de:${item.show.name}">
           </li>
         `;
-        console.log(item.show.image.medium);
+        }
+
 
       }
       result.innerHTML += seriesResult;
