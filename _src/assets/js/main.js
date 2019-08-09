@@ -6,16 +6,32 @@ const button = document.querySelector('.btn');
 const result = document.querySelector('.list');
 const favorites = document.querySelector('.serie');
 const url = 'http://api.tvmaze.com/search/shows?q=';
+
+
+
+//localstorage
+
+const favStore = JSON.parse(localStorage.getItem('details'));
 let favs = [];
+if (favStore) {
+  favs = favStore;
+} else {
+  favs = [];
+}
+let addStorage = '';
+for (let i = 0; i < favs.length; i++) {
+  addStorage += `
+            <li class="list__title-serie" data-id=${favs[i].id}data-name=${favs[i].name} data-img="https://via.placeholder.com/210x295/f2f2ff/?text=TV">
+            <h2 class="title__line"> ${favs[i].name}</h2>
+            <img class="img__serie" src="https://via.placeholder.com/210x295/f2f2ff/?text=TV" alt="imagen de:${favs[i].name}">
+          </li>
+        `;
+  favorites.innerHTML = addStorage;
+}
 
-addFavStore();
+//
 
-function addFavStore() {
-  const favStore = JSON.parse(localStorage.getItem('favs'));
-  if (favStore) {
-    favs = favStore;
-    getFavs();
-  }
+
 
 function getList() {
   const nameSerie = title.value;
@@ -54,12 +70,9 @@ function getList() {
     });
 
 
-  localStorage.setItem('favs', JSON.stringify(favs));
+
 
 }
-
-
-
 
 function getFavs(event) {
   const item = event.currentTarget;
@@ -78,7 +91,6 @@ function getFavs(event) {
   if (item.classList.contains('serie-fav')) {
     if (favs.includes(object) === false) {
       favs.push(object);
-      console.log(favs);
       if (object.getImg === null) {
         seriesResultFav +=
           `<li class="list__title-serie">
@@ -95,7 +107,10 @@ function getFavs(event) {
       `;
       }
     }
+    localStorage.setItem('details', JSON.stringify(favs));
+
   }
+
   else {
     const best = favs.indexOf(name);
     if (best > -1) {

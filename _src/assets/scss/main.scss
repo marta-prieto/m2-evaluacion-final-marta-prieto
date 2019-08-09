@@ -19,15 +19,17 @@
   width: 50%;
 }
 
-/* .list-name {
-  text-decoration: none;
-} */
+.list-name {
+  list-style: none;
+}
 
 .list__title-serie{
   background-color:  pink;
+  color: rgb(219, 12, 209);
 }
 
 .serie-fav {
  background-color: rgb(219, 12, 209);
+ color: pink;
 }
 
