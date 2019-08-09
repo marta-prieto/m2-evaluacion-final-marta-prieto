@@ -15,14 +15,19 @@
   width:50%;
 }
 
-fav-list__container {
+.fav-list__container {
   width: 50%;
 }
+.list-name {
+  text-decoration: none;
+}
 
-.list {
+
+.list__title-serie{
+  background-color:  pink;
+}
+
+.serie-fav {
  background-color: rgb(219, 12, 209);
 }
 
-.serie{
-  background-color: pink;
-}
