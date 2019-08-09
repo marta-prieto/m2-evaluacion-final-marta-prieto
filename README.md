@@ -39,7 +39,7 @@ La estructura de carpetas:
    
 ```
 ## JS
-Se requiere a través de un botón y un input de búsqueda donde escribe el usuario que a través de una Api se vuelque la información que busca la persona. Utilizando Listener al hacer click nos muestra el listado de series, que previamente se han filtrado por el nombre de la búsqueda. A su vez, se aplica a través de otra función la posibilidad de seleccionar la serie favorita que se desee por lo que todo ello se utiliza un array para recorrer toda la información y volcarla en la web del usuario.Para gurdar la información aún recargando la página se utiliza localstorage y así no perder las búquedas previas.
+Se requiere a través de un botón y un input de búsqueda donde escribe el usuario que a través de una Api nos devuelve la petición que es la información que busca la persona. Utilizando Listener al hacer click nos muestra el listado de series, que previamente se han filtrado por el nombre de la búsqueda. A su vez, se aplica a través de otra función la posibilidad de seleccionar la serie favorita que se desee por lo que todo ello se utiliza un array para recorrer toda la información y volcarla en la web del usuario.Para gurdar la información aún recargando la página se utiliza localstorage y así no perder las búquedas previas.
 
 ## HTML
 Está estructurado dentro de un contenedor principal en cual se divide en dos secciones, una con un listado de series (guardas en base de datos) y otra un listado de series favoritas.
