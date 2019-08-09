@@ -10,12 +10,12 @@ const url = 'http://api.tvmaze.com/search/shows?q=';
 
 
 //localstorage
-/*
-const favStore = JSON.parse(localStorage.getItem('details'));*/
+
+const favStore = JSON.parse(localStorage.getItem('details'));
 
 let favs = [];
 
-/*if (favStore) {
+if (favStore) {
   favs = favStore;
 } else {
   favs = [];
@@ -23,15 +23,15 @@ let favs = [];
 let addStorage = '';
 for (let i = 0; i < favs.length; i++) {
   addStorage += `
-            <li class="list__title-serie" data-id=${favs[i].id}data-name=${favs[i].name} data-img="https://via.placeholder.com/210x295/f2f2ff/?text=TV">
-            <h2 class="title__line"> ${favs[i].name}</h2>
-            <img class="img__serie" src="https://via.placeholder.com/210x295/f2f2ff/?text=TV" alt="imagen de:${favs[i].name}">
+            <li class="list__title-serie" data-id=${favs[i].getId}data-name=${favs[i].getName} data-img="https://via.placeholder.com/210x295/f2f2ff/?text=TV">
+            <h2 class="title__line"> ${favs[i].getName}</h2>
+            <img class="img__serie" src="${favs[i].getImg}" alt="imagen de:${favs[i].getName}">
           </li>
         `;
-  favorites.innerHTML = addStorage;
-}
 
-// */
+}
+favorites.innerHTML = addStorage;
+//
 
 
 
@@ -109,7 +109,7 @@ function getFavs(event) {
       `;
       }
     }
-    /* localStorage.setItem('details', JSON.stringify(favs)); */
+    localStorage.setItem('details', JSON.stringify(favs));
 
   }
 
