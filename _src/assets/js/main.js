@@ -1,17 +1,27 @@
 'use strict';
 
-console.log('>> Ready :)');
 
 const title = document.querySelector('.input__name');
 const button = document.querySelector('.btn');
 const result = document.querySelector('.list');
 const favorites = document.querySelector('.serie');
 const url = 'http://api.tvmaze.com/search/shows?q=';
-const favs = [];
+let favs = [];
+
+addFavStore();
+
+function addFavStore() {
+  const favStore = JSON.parse(localStorage.getItem('favs'));
+  if (favStore) {
+    favs = favStore;
+    getFavs();
+  }
 
 function getList() {
   const nameSerie = title.value;
   const endpoint = url + nameSerie;
+
+
 
   fetch(endpoint)
     .then(response => response.json())
@@ -33,8 +43,6 @@ function getList() {
           </li>
         `;
         }
-
-
       }
       result.innerHTML += seriesResult;
 
@@ -43,10 +51,15 @@ function getList() {
       for (let i = 0; i < series.length; i++) {
         series[i].addEventListener('click', getFavs);
       }
-      console.log('favorito-1');
     });
 
+
+  localStorage.setItem('favs', JSON.stringify(favs));
+
 }
+
+
+
 
 function getFavs(event) {
   const item = event.currentTarget;
@@ -58,18 +71,14 @@ function getFavs(event) {
     'getName': name,
     'getId': id,
   };
-  console.log(name);
-
 
   let seriesResultFav = '';
-
 
   item.classList.toggle('serie-fav');
   if (item.classList.contains('serie-fav')) {
     if (favs.includes(object) === false) {
       favs.push(object);
-      /*  console.log(object); */
-
+      console.log(favs);
       if (object.getImg === null) {
         seriesResultFav +=
           `<li class="list__title-serie">
@@ -77,7 +86,6 @@ function getFavs(event) {
         <img class="img__serie" src="${img}" alt="imagen de:${name} ">
       </li>`;
 
-        /* console.log('hola'); */
       } else {
         seriesResultFav += `
         <li class="list__title-serie">
@@ -86,7 +94,6 @@ function getFavs(event) {
         </li>
       `;
       }
-      /* console.log('adios'); */
     }
   }
   else {
@@ -96,8 +103,9 @@ function getFavs(event) {
     }
   }
   favorites.innerHTML += seriesResultFav;
-  /* console.log('prueba-favorito-2'); */
-}
 
+
+
+}
 
 button.addEventListener('click', getList);
