@@ -1,3 +1,28 @@
-@import "core/settings";
+.list__series-container {
+  display: flex;
+  align-content: space-around;
+  margin: 0;
+}
 
+.list-name {
+  font-size: 30px;
+}
 
+.fav__list-name {
+  font-size: 30px;
+}
+.main-list__container {
+  width:50%;
+}
+
+fav-list__container {
+  width: 50%;
+}
+
+.list {
+ background-color: rgb(219, 12, 209);
+}
+
+.serie{
+  background-color: pink;
+}

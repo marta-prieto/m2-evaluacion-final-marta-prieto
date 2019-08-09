@@ -62,13 +62,14 @@ function getFavs(event) {
 
 
   let seriesResultFav = '';
-  favorites.innerHTML += seriesResultFav;
+
 
   item.classList.toggle('serie-fav');
   if (item.classList.contains('serie-fav')) {
-    if (favs.includes(name) === false) {
+    if (favs.includes(object) === false) {
       favs.push(object);
       /*  console.log(object); */
+
       if (object.getImg === null) {
         seriesResultFav +=
           `<li class="list__title-serie">
@@ -94,6 +95,7 @@ function getFavs(event) {
       favs.splice(best, 1);
     }
   }
+  favorites.innerHTML += seriesResultFav;
   /* console.log('prueba-favorito-2'); */
 }
 
