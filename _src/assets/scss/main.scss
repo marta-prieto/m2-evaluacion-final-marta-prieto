@@ -4,29 +4,51 @@
   margin: 0;
 }
 
-.list-name {
-  font-size: 30px;
+.search__title {
+  margin: 20px 15px;
 }
 
-.fav__list-name {
-  font-size: 30px;
+.input__name {
+  margin: 15px 15px;
 }
+
+.list-name {
+  font-size: 24px;
+  margin: 30px 15px;
+}
+.fav__list-name {
+  font-size: 24px;
+  margin: 30px 15px;
+}
+
 .main-list__container {
-  width:50%;
+  width: 50%;
 }
 
 .fav-list__container {
   width: 50%;
+  font-size: 24px;
 }
 
-.list__title-serie{
-  background-color:  pink;
+.list__title-serie {
+  background-color: pink;
   color: rgb(219, 12, 209);
   list-style: none;
 }
 
 .serie-fav {
- background-color: rgb(219, 12, 209);
- color: pink;
+  background-color: rgb(219, 12, 209);
+  color: pink;
+  font-size: 24px;
+}
+
+.list {
+  padding: 0;
+  margin: 0 15px 15px;
+}
+
+.serie {
+  padding: 0;
+  margin: 0 15px 15px;
 }
 

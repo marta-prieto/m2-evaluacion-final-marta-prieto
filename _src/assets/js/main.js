@@ -1,15 +1,10 @@
 'use strict';
 
-
 const title = document.querySelector('.input__name');
 const button = document.querySelector('.btn');
 const result = document.querySelector('.list');
 const favorites = document.querySelector('.serie');
 const url = 'http://api.tvmaze.com/search/shows?q=';
-
-
-
-//localstorage
 
 const favStore = JSON.parse(localStorage.getItem('details'));
 
@@ -24,23 +19,18 @@ let addStorage = '';
 for (let i = 0; i < favs.length; i++) {
   addStorage += `
             <li class="list__title-serie" data-id=${favs[i].getId}data-name=${favs[i].getName} data-img="https://via.placeholder.com/210x295/f2f2ff/?text=TV">
-            <h2 class="title__line"> ${favs[i].getName}</h2>
-            <img class="img__serie" src="${favs[i].getImg}" alt="imagen de:${favs[i].getName}">
+              <h2 class="title__line"> ${favs[i].getName}</h2>
+              <img class="img__serie" src="${favs[i].getImg}" alt="imagen de:${favs[i].getName}">
           </li>
         `;
 
 }
 favorites.innerHTML = addStorage;
-//
-
 
 
 function getList() {
   const nameSerie = title.value;
   const endpoint = url + nameSerie;
-
-
-
   fetch(endpoint)
     .then(response => response.json())
     .then(data => {
@@ -55,7 +45,7 @@ function getList() {
         `;
         } else {
           seriesResult += `
-          <li class="list__title-serie" data-id="${item.show.id}" data-name="${item.show.name}" data-img= "${item.show.image.medium}">
+          <li class="list__title-serie" data-id="${item.show.id}"     data-name="${item.show.name}" data-img= "${item.show.image.medium}">
             <h2 class="title__line"> ${item.show.name}</h2>
             <img class="img__serie" src="${item.show.image.medium}" alt="imagen de:${item.show.name} ">
           </li>
@@ -70,10 +60,6 @@ function getList() {
         series[i].addEventListener('click', getFavs);
       }
     });
-
-
-
-
 }
 
 function getFavs(event) {
@@ -96,9 +82,9 @@ function getFavs(event) {
       if (object.getImg === null) {
         seriesResultFav +=
           `<li class="list__title-serie">
-        <h2 class="title__line"> ${name}</h2>
-        <img class="img__serie" src="${img}" alt="imagen de:${name} ">
-      </li>`;
+          <h2 class="title__line"> ${name}</h2>
+          <img class="img__serie" src="${img}" alt="imagen de:${name} ">
+        </li>`;
 
       } else {
         seriesResultFav += `
@@ -110,19 +96,13 @@ function getFavs(event) {
       }
     }
     localStorage.setItem('details', JSON.stringify(favs));
-
-  }
-
-  else {
+  } else {
     const best = favs.indexOf(name);
     if (best > -1) {
       favs.splice(best, 1);
     }
   }
   favorites.innerHTML += seriesResultFav;
-
-
-
 }
 
 button.addEventListener('click', getList);
