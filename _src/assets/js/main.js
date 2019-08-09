@@ -10,10 +10,12 @@ const url = 'http://api.tvmaze.com/search/shows?q=';
 
 
 //localstorage
+/*
+const favStore = JSON.parse(localStorage.getItem('details'));*/
 
-const favStore = JSON.parse(localStorage.getItem('details'));
 let favs = [];
-if (favStore) {
+
+/*if (favStore) {
   favs = favStore;
 } else {
   favs = [];
@@ -29,7 +31,7 @@ for (let i = 0; i < favs.length; i++) {
   favorites.innerHTML = addStorage;
 }
 
-//
+// */
 
 
 
@@ -107,7 +109,7 @@ function getFavs(event) {
       `;
       }
     }
-    localStorage.setItem('details', JSON.stringify(favs));
+    /* localStorage.setItem('details', JSON.stringify(favs)); */
 
   }
 
