@@ -1,49 +1,31 @@
 EVALUACIÓN FINAL MÓDULO 2
+Marta Prieto
 
 
 
+## Información del proyecto
 
+Se requiere realizar una web en la que el usuario pueda buscar un listado de nombre de series haciendo click en el botón y le aparezca el listado de las mismas.
 
+## Requerimiento del proyecto
 
-# Adalab web starter kit
-Ahoy! Esta es nuestro Starter Kit en node/gulp para este primer contacto con el desarrollo web
-Incluye SCSS, un sistema de plantillas HTMl y un web server.
-
-## Guía de inicio rápido
-Necesitarás instalar [Node.js](https://nodejs.org/) y [Gulp](https://gulpjs.com) para trabajar con este Starter Kit, luego:
-1. Descarga o clona el repositorio
-2. Instala las dependencias locales con `$ npm install`
-3. Arranca el kit con `$ gulp`
-
-## Espera, ¿esto se hace siempre?
-> ### Solo una vez al principio en cada ordenador que utilicemos:
-- Instalamos node
-- Instalamos el comando de gulp de forma global para poder usarlo desde cualquier carpeta usando `npm install --global gulp-cli`
-
-> ### Cada vez que descarguemos o clonemos un repo:
-- `npm install` para instalar los paquetes necesarios para convertir Sass a CSS, minizarlo, etc.
-
-> ### Cada vez que estemos trabajando con nuestro código:
-- Desde nuestra terminal, ejecutamos el comando `gulp` para que realice la tarea por defecto, que en el caso del `gulpfile.js` que tenemos en adalab-web-starter-kit estará pendiente de nuestros archivos Sass, html y JavaScript y los compilará, minificará y/o recargará el servidor cada vez que hagamos un cambio
-
-## Tareas de gulp incluidas
-### Inicio de un web server para desarrollo
-```
-$ gulp
-```
-Lanza un webserver con BrowserSync y varios watchers estarán pendientes de los archivos SCSS/JS/HTML, en la carpeta **public/**, para recargar el navegador cuando se necesite.
-
-### Versión lista para subir a producción
-```
-$ gulp docs
-```
-En la carpeta **docs/** genera los CSS y JS minimizados y sin sourcemaps listos para subir al repo y activar GitHub Pages en `master/docs`.
-
+Crear código JavaScript con sintaxis correcta, bien estructurado e indentado *
+Usar constantes/variables para almacenar información y re‒asignar valores *
+Usar condicionales para ejecutar acciones distintas en función de una condición
+Listados de datos (arrays) *
+Funciones para estructurar el código
+Modificar la información del DOM para añadir contenido dinámico *
+Escuchar eventos del DOM y actuar en consecuencia *
+AJAX y APIs
+Utilizar fetch y promesas *
+Trabajar correctamente con la respuesta del servidor *
+Gestionar información en formato JSON
+Usar el localStorage para guardar información en el navegador
+Usar inglés para nombres de variables, funciones, clases, mensajes de commit, nombres de
+ficheros
 
 ## Estructura del proyecto
-Nuestro **gulpfile.js** usa un JSON de configuración con las rutas de los archivos a generar/vigilar.
-
-La estructura de carpetas tiene esta pinta:
+La estructura de carpetas:
 ```
 /
 `- _src
@@ -54,25 +36,18 @@ La estructura de carpetas tiene esta pinta:
    |  `- scss
    |     `- core
    |
-   `- templates
-      `- partials
-
+   
 ```
+## JS
+Se requiere a través de un botón y un input de búsqueda donde escribe el usuario que a través de una Api se vuelque la información que busca la persona. Utilizando Listener al hacer click nos muestra el listado de series, que previamente se han filtrado por el nombre de la búsqueda. A su vez, se aplica a través de otra función la posibilidad de seleccionar la serie favorita que se desee por lo que todo ello se utiliza un array para recorrer toda la información y volcarla en la web del usuario.Para gurdar la información aún recargando la página se utiliza localstorage y así no perder las búquedas previas.
 
 ## HTML
-Viene incluído el paquete [**gulp-html-partial**](https://www.npmjs.com/package/gulp-html-partial) que nos va a permitir tener un sistema de plantillas html
+Está estructurado dentro de un contenedor principal en cual se divide en dos secciones, una con un listado de series (guardas en base de datos) y otra un listado de series favoritas.
 
-## Imágenes e iconos
-Tenemos en **_src/** una carpeta para las imágenes del proyecto y una para los iconos como el favicon o los iconos de dispositivos móviles. Estos últimos se generan en la raíz de las carpetas **public/** y **docs/**
+## Imágenes
+Las imágenes se enlazan a través de la Api y en el caso de no contener imagen se añaden a través de la https facilitada en las instrucciones del proyecto (https://via.placeholder.com/210x295/ffffff/666666/?text=TV)
 
-## CSS
-Viene incluído el paquete [**gulp-combine-mq**](https://www.npmjs.com/package/gulp-combine-mq) que agrupa todas las mediaqueries al final del documento css.
+## CSS / SCSS
+Se aplica los estilos de las imágenes, color y fuentes para darle forma a la web. En este caso son etiquetas de cada serie y se aplica color inverso cuando se seleccionan las peliculas favoritas (cambia el color del fondo y de las letras del título si se hace click para elegir la serie favorita)
 
-## JS
-Podemos usar parciales de JS: en el JSON de configuración, **config.json** especificamos los archivos JS que utilizamos y en el orden que deben procesarse.
 
-## ¿Cómo actualizo si tengo una versión anterior?
-En principio puedes descargar todos los archivos fuera de **_src/** y sustituir los de tu proyecto. Además deberías replicar la estructura de carpetas dentro de **_src/**.
-
-## Falta algo?
-Echas de menos que el kit haga algo en concreto? Pidelo sin problema a través de los Issues o si te animas a mejorarlo mándanos un PR :)
