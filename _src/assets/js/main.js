@@ -20,14 +20,14 @@ function getList() {
       for (const item of data) {
         if (item.show.image === null) {
           seriesResult += `
-          <li class="list__title-serie" data-id="${item.show.id}" data-name="${item.show.name}" data-img="">
-            <h2 class="title__line"> ${item.show.name}</h2>
+          <li class="list__title-serie" data-id="${item.show.id}"data-name="${item.show.name}" data-img="https://via.placeholder.com/210x295/f2f2ff/?text=TV">
+            <h2 class="title__line"> "${item.show.name}"</h2>
             <img class="img__serie" src="https://via.placeholder.com/210x295/f2f2ff/?text=TV" alt="imagen de:${item.show.name}">
           </li>
         `;
         } else {
           seriesResult += `
-          <li class="list__title-serie">
+          <li class="list__title-serie" data-id="${item.show.id}" data-name="${item.show.name}" data-img= "${item.show.image.medium}">
             <h2 class="title__line"> ${item.show.name}</h2>
             <img class="img__serie" src="${item.show.image.medium}" alt="imagen de:${item.show.name} ">
           </li>
@@ -53,29 +53,49 @@ function getFavs(event) {
   const id = item.getAttribute('data-id');
   const name = item.getAttribute('data-name');
   const img = item.getAttribute('data-img');
+  const object = {
+    'getImg': img,
+    'getName': name,
+    'getId': id,
+  };
+  console.log(name);
+
+
   let seriesResultFav = '';
+  favorites.innerHTML += seriesResultFav;
+
   item.classList.toggle('serie-fav');
   if (item.classList.contains('serie-fav')) {
     if (favs.includes(name) === false) {
-      favs.push(name); {
-
+      favs.push(object);
+      /*  console.log(object); */
+      if (object.getImg === null) {
         seriesResultFav +=
           `<li class="list__title-serie">
         <h2 class="title__line"> ${name}</h2>
         <img class="img__serie" src="${img}" alt="imagen de:${name} ">
       </li>`;
-        console.log('hola');
 
+        /* console.log('hola'); */
+      } else {
+        seriesResultFav += `
+        <li class="list__title-serie">
+          <h2 class="title__line"> ${name}</h2>
+          <img class="img__serie" src="${img}" alt="imagen de:${name} ">
+        </li>
+      `;
       }
+      /* console.log('adios'); */
     }
-  } else {
+  }
+  else {
     const best = favs.indexOf(name);
     if (best > -1) {
       favs.splice(best, 1);
     }
   }
-  console.log('prueba-favorito-2');
-  favorites.innerHTML += seriesResultFav;
+  /* console.log('prueba-favorito-2'); */
 }
+
 
 button.addEventListener('click', getList);
